@@ -143,7 +143,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        'rest_framework.permissions.AllowAny',
     ],
     # 'DEFAULT_PERMISSION_CLASSES': ( 'rest_framework.permissions.IsAuthenticatedOrReadOnly', ),
 }
@@ -155,6 +155,6 @@ REST_FRAMEWORK = {
 # IsAuthenticatedOrReadOnly
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3111",
-    "http://127.0.0.1:3111",
+    "http://localhost:3112",
+    "http://127.0.0.1:3112",
 ]
