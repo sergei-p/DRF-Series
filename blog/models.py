@@ -2,8 +2,9 @@ from pyexpat import model
 from turtle import title
 from unicodedata import category
 from django.db import models
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 from django.utils import timezone
+from django.conf import settings
 
 # Create your models here.
 class Category(models.Model):
@@ -32,7 +33,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=250, unique_for_date='published')
     published = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='blog_posts'
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='blog_posts'
     ) # cascade cauases a Post to be deleted if a user is deleted
     status = models.CharField(
         max_length=10, choices=options, default='published'
